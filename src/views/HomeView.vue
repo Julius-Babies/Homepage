@@ -2,7 +2,7 @@
     <Header color="white"></Header>
     <div class="header" id="header">
         <div id="image"></div>
-        <div id="welcome_typing"></div>
+        <div id="welcome_typing"><span></span><span id="welcome_cursor">|</span></div>
     </div>
 </template>
 
@@ -23,6 +23,7 @@ export default {
             return new Promise(resolve => setTimeout(resolve, ms));
         },
         async animation() {
+            const textSpan = document.getElementById("welcome_typing").getElementsByTagName("span")[0]
             let lastRandomText = ""
             while (this.$route.name === "home") {
                 const text = ["Hallo.", "Herzlich willkommen.", "Internal server error (500)", "Julius Vincent Babies.", "Hier könnte ihre Werbung stehen."]
@@ -30,21 +31,19 @@ export default {
                 while (randomText === "" || randomText === lastRandomText) {
                     randomText = text[Math.floor(Math.random() * text.length)]
                 }
-                document.getElementById("welcome_typing").classList.add("typing");
                 for (let i = 0; i < randomText.length; i++) {
                     // wait a random amount of time
                     if (!this.is_active) return
                     await this.sleep((Math.random() / 2) * 100 + 100);
                     if (!this.is_active) return
-                    document.getElementById("welcome_typing").innerHTML += randomText[i]
+                    textSpan.innerHTML += randomText[i]
                 }
-                document.getElementById("welcome_typing").classList.remove("typing");
                 await this.sleep(3000)
                 for (let i = 0; i < randomText.length; i++) {
                     if (!this.is_active) return
                     await this.sleep(50)
                     if (!this.is_active) return
-                    document.getElementById("welcome_typing").innerHTML = document.getElementById("welcome_typing").innerHTML.slice(0, -1)
+                    textSpan.innerHTML = textSpan.innerHTML.slice(0, -1)
                 }
                 lastRandomText = randomText
             }
@@ -82,14 +81,16 @@ export default {
     top: 0;
     left: 0;
     transition: .5s;
-    width: 100%;
-    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
     z-index: -1;
-    background-size: 125%;
-    background-image: url("~@/assets/header.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
     filter: brightness(0.7);
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: url("~@/assets/header.jpg");
 
 }
 
@@ -99,17 +100,24 @@ export default {
     font-size: 400%;
     border-right: 0;
     padding-right: 0.05em;
-    animation: typing 1s infinite;
+}
+
+#welcome_cursor {
+    animation: typing 0.8s infinite;
+    font-size: 125%;
+    margin-right: 5px;
+
 }
 
 @keyframes typing {
-    0%, 49.999% {
-        border-right: 0;
-        padding-right: 0.05em;
+    0% {
+        opacity: 0;
     }
-    50%, 100% {
-        border-right: 0.05em solid white;
-        padding-right: 0;
+    40%, 60% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }
 
