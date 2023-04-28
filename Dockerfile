@@ -1,4 +1,4 @@
 FROM node:19
 WORKDIR .
 RUN npm install
-RUN npm build
+RUN npm run serve -- --port 8004
