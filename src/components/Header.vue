@@ -15,6 +15,7 @@ export default {
 
 <style scoped>
 #menu {
+    position: fixed;
     padding: 10px;
     font-family: 'Roboto', sans-serif;
     font-size: 200%;
