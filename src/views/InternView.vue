@@ -7,6 +7,32 @@
           <ServiceCard name="Bitwarden" :icon_url="require('@/assets/bitwarden.png')" url="https://julius.familie-babies.de/bitwarden" />
       </div>
   </div>
+  <table>
+      <tr>
+          <th>Port</th>
+          <th>Service</th>
+      </tr>
+      <tr>
+          <td>8001</td>
+          <td>Guacamole</td>
+      </tr>
+      <tr>
+          <td>8002</td>
+          <td>phpMyAdmin</td>
+      </tr>
+      <tr>
+          <td>8003</td>
+          <td>Wordpress</td>
+      </tr>
+      <tr>
+          <td>8004</td>
+          <td>WebApp</td>
+      </tr>
+      <tr>
+          <td>8005</td>
+          <td>Bitwarden</td>
+      </tr>
+  </table>
 </template>
 
 <style scoped>
