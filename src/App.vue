@@ -15,6 +15,7 @@ body {
 }
 .content {
     padding: 10px;
+    margin-top: 200px;
     background: rgba(0, 0, 0, 0.8);
     color: white;
 }
