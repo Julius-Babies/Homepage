@@ -1,9 +1,8 @@
 <template>
-    <Header color="white"></Header>
     <div class="header" id="header">
         <div id="image"></div>
         <div id="welcome_typing"><span></span><span id="welcome_cursor">|</span></div>
-        <div id="welcome_arrow_wrapper">
+        <div id="welcome_arrow_wrapper" @click="this.$refs.content.scrollIntoView({behavior: 'smooth'})">
             <div id="welcome_arrow">
                 <img src="@/assets/arrow_down.png">
                 <img src="@/assets/arrow_down.png">
@@ -13,77 +12,45 @@
     </div>
     <div class="content-gradient"></div>
     <div class="content">
-        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-            dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-            consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
-            diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-            takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-            diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-            accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-            dolor sit amet.
-
-            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu
-            feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril
-            delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-
-            Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea
-            commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
-            illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent
-            luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-
-            Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer
-            possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-            ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-
-            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu
-            feugiat nulla facilisis.
-
-            At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-            Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-            dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-            consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
-            diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-            takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-            diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-            accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-            dolor sit amet.
-
-            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu
-            feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril
-            delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-
-            Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea
-            commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
-            illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent
-            luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-
-            Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer
-            possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-            ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-
-            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu
-            feugiat nulla facilisis.
-
-            At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-            Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur</p>
+        <article ref="content">
+            <h1 style="padding-top: 80px">Über mich</h1>
+            <p>
+                Hallo, mein Name ist Julius Babies, ich bin Schüler an einem Dresdener Gymnasium und ich beschäftige mich freizeitlich mit dem Gebiet der Softwareentwicklung mit Schwerpunkten in Kotlin, Java und Vue.JS (JavaScript).<br>
+                Des weiteren beschäftige ich mich gerne mit der Programmierung von Raspberry Pi und Mikroelektronik.
+            </p>
+            <p>
+                Seit vielen Jahren beschäftige ich mich intensiv mit der Softwareentwicklung und habe im Laufe der Zeit umfassende Kenntnisse in verschiedenen Programmiersprachen erworben. Insbesondere Kotlin, Java und Vue (JavaScript) sind meine bevorzugten Sprachen, in denen ich mich durch zahlreiche Projekte und Programmieraufgaben ständig weiterentwickle.
+            </p>
+            <p>
+                Ich bin begeistert davon, wie die Technologie unsere Welt verändert und wie die Programmierung die Fähigkeit hat, komplexe Probleme zu lösen und neue Möglichkeiten zu schaffen. Ausserdem stehe ich hinter dem Prinzip von Open-Source-Software und freue mich, wenn ich einen Beitrag dazu leisten kann. Der Quelltext für diese Seite ist beispielsweise auf <a href="https://github.com/Julius-Babies/Homepage" target="_blank">GitHub</a> verfügbar.
+            </p>
+            <p>
+                Mein Ziel ist es, meine Fähigkeiten in der Softwareentwicklung und Mikroelektronik kontinuierlich zu verbessern und neue Technologien zu erlernen. Ich bin immer auf der Suche nach neuen Herausforderungen und Projekten, bei denen ich mein Wissen und meine Fähigkeiten einbringen kann.
+            </p>
+            <h1>(Soziale) Netzwerke</h1>
+            <div style="display: flex">
+                <SocialMediaCard name="GitHub" url="https://github.com/Julius-Babies"
+                                 :icon_url="require('@/assets/github.svg')" color="rgba(0, 0, 0, 0.5)"></SocialMediaCard>
+                <SocialMediaCard name="Twitter" url="https://twitter.com/@juliusbabies"
+                                 :icon_url="require('@/assets/twitter.svg')"
+                                 color="rgba(4, 46, 72, 0.5)"></SocialMediaCard>
+                <SocialMediaCard name="Matrix" url="https://matrix.to/#/@julius-babies:matrix.org"
+                                 :icon_url="require('@/assets/matrix.svg')"
+                                 color="rgba(6, 62, 47, 0.5)"></SocialMediaCard>
+            </div>
+            <p><i>I use arch btw.</i></p>
+        </article>
     </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import Header from "@/components/Header.vue";
+import SocialMediaCard from "@/components/home/SocialMediaCard.vue";
 
 export default {
     name: 'HomeView',
-    components: {Header},
+    components: {SocialMediaCard, Header},
     data() {
         return {
             is_active: true
@@ -134,7 +101,7 @@ export default {
 <style scoped>
 
 .content {
-    padding: 10px;
+    padding: 30px;
     background: rgba(0, 0, 0, 0.8);
     color: white;
 }
@@ -155,7 +122,7 @@ export default {
     text-align: center;
     width: 100%;
     overflow: hidden;
-    height: calc( 100vh - 200px);
+    height: calc(100vh - 200px);
 }
 
 #welcome_arrow_wrapper {
@@ -167,6 +134,14 @@ export default {
     text-align: center;
     border-radius: 25px;
     transition: .2s;
+}
+
+article {
+    font-size: 14pt;
+}
+
+article a {
+    color: white;
 }
 
 #welcome_arrow_wrapper:hover {

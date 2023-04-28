@@ -10,7 +10,7 @@
 <script>
 export default {
     name: "ServiceCard",
-    props: ["name", "icon_url", "url"]
+    props: ["name", "icon_url", "url"],
 }
 </script>
 

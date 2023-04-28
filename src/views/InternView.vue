@@ -1,5 +1,4 @@
 <template>
-    <Header color="black"></Header>
     <div id="content">
       <div>
           <ServiceCard name="Guacamole" :icon_url="require('@/assets/guacamole.png')" url="https://julius.familie-babies.de/guacamole" />
@@ -42,5 +41,5 @@
 </style>
 <script setup>
 import Header from "@/components/Header.vue";
-import ServiceCard from "@/components/ServiceCard.vue";
+import ServiceCard from "@/components/internal/ServiceCard.vue";
 </script>
