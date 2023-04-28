@@ -131,7 +131,18 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
+
+.content {
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+.content-gradient {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+    height: 200px;
+}
 
 .info {
     border: 1pt solid orange;

@@ -9,15 +9,8 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.content-gradient {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
-    height: 200px;
-}
-.content {
-    padding: 10px;
+#content {
     margin-top: 200px;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
 }
 
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div>
       <Header color="black"></Header>
-      <div id="services" class="content">
+      <div id="content">
           <ServiceCard name="Guacamole" :icon_url="require('@/assets/guacamole.png')" url="https://julius.familie-babies.de/guacamole" />
           <ServiceCard name="phpMyAdmin" :icon_url="require('@/assets/pma.png')" url="https://julius.familie-babies.de/phpmyadmin" />
           <ServiceCard name="Bitwarden" :icon_url="require('@/assets/bitwarden.png')" url="https://julius.familie-babies.de/bitwarden" />
@@ -36,8 +36,8 @@
 </template>
 
 <style scoped>
-#services {
-    margin: 15pt;
+#content {
+    margin: 200px 15px 15px;
 }
 </style>
 <script setup>
