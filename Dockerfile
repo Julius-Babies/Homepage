@@ -2,4 +2,4 @@ FROM node:19
 WORKDIR /usr/app
 COPY ./www /usr/app
 RUN npm install
-RUN npm run serve -- --port 8004
+CMD ["npm", "run", "serve", "--", "--port", "8004"]
