@@ -10,7 +10,7 @@ body {
 }
 
 #content {
-    margin-top: 200px;
+    margin-top: 80px;
 }
 
 </style>

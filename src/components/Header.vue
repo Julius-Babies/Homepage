@@ -17,6 +17,7 @@ export default {
 #menu {
     position: fixed;
     padding: 10px;
+    top: 0;
     font-family: 'Roboto', sans-serif;
     font-size: 200%;
     color: v-bind(color);
