@@ -1,7 +1,7 @@
 <template>
-<div class="card" :style="{'color': this.$props.color}">
+<div class="card" @click="openUrl" :style="{'color': this.$props.color}">
     <div>
-        <img :src="this.$props.icon_url">
+        <img :src="this.$props.icon_url" :alt="this.$props.name">
         <div>{{ this.$props.name}}</div>
     </div>
 </div>
@@ -15,6 +15,11 @@ export default {
         return {
             color: this.$props.color
         }
+    },
+    methods: {
+        openUrl() {
+            window.open(this.$props.url, "_blank");
+        }
     }
 }
 </script>
@@ -24,6 +29,7 @@ export default {
     color: white;
 }
 .card {
+    cursor: pointer;
     display: flex;
     border-radius: 20px;
     width: 100%;
