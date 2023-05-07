@@ -22,7 +22,7 @@
                 Seit vielen Jahren beschäftige ich mich intensiv mit der Softwareentwicklung und habe im Laufe der Zeit umfassende Kenntnisse in verschiedenen Programmiersprachen erworben. Insbesondere Kotlin, Java und Vue (JavaScript) sind meine bevorzugten Sprachen, in denen ich mich durch zahlreiche Projekte und Programmieraufgaben ständig weiterentwickle.
             </p>
             <p>
-                Ich bin begeistert davon, wie die Technologie unsere Welt verändert und wie die Programmierung die Fähigkeit hat, komplexe Probleme zu lösen und neue Möglichkeiten zu schaffen. Ausserdem stehe ich hinter dem Prinzip von Open-Source-Software und freue mich, wenn ich einen Beitrag dazu leisten kann. Der Quelltext für diese Seite ist beispielsweise auf <a href="https://github.com/Julius-Babies/Homepage" target="_blank">GitHub</a> verfügbar.
+                Ich bin begeistert davon, wie die Technologie unsere Welt verändert und wie die Programmierung die Fähigkeit hat, komplexe Probleme zu lösen und neue Möglichkeiten zu schaffen. Ausserdem stehe ich hinter dem Prinzip von Open-Source-Software und freue mich, wenn ich einen Beitrag dazu leisten kann.
             </p>
             <p>
                 Mein Ziel ist es, meine Fähigkeiten in der Softwareentwicklung und Mikroelektronik kontinuierlich zu verbessern und neue Technologien zu erlernen. Ich bin immer auf der Suche nach neuen Herausforderungen und Projekten, bei denen ich mein Wissen und meine Fähigkeiten einbringen kann.

@@ -29,7 +29,6 @@ export default {
     },
     methods: {
         handleScroll() {
-            console.log(window.scrollY)
             if (this.$route.name === "home") {
                 if (window.scrollY < window.innerHeight) {
                     this.has_background = false
