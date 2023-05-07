@@ -33,8 +33,8 @@
             <h1>Login</h1>
             <div>
                 <form onsubmit="return false" id="intern_login_form">
-                    <input placeholder="Benutzername oder E-Mail-Adresse" type="text" ref="email">
-                    <input placeholder="Passwort" type="password" ref="pass">
+                    <input placeholder="Benutzername oder E-Mail-Adresse" type="text" ref="email" v-on:keydown.enter="this.$refs.pass.focus()">
+                    <input placeholder="Passwort" type="password" ref="pass" v-on:keydown.enter="this.$refs.login_submit_button_wrapper.click()">
                     <div id="login_submit_button_wrapper" ref="login_submit_button_wrapper" @click="login">
                         <div id="login_submit_button" type="submit" v-if="!this.loginLoading">
                             <img :src="require('@/assets/arrow_right_alt_FILL0_wght400_GRAD0_opsz48.svg')"
