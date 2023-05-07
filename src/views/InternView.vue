@@ -1,7 +1,9 @@
 <template>
     <div id="content">
-        <div v-if="!(this.localStorage.token === undefined || this.localStorage.token === '') || showContent">
-            <div>
+        <div class="content"
+             v-if="!(this.localStorage.token === undefined || this.localStorage.token === '') || showContent">
+            <div id="services">
+                <h2 style="margin-top: 0; padding-top: 0">Dienste</h2>
                 <ServiceCard name="Guacamole" :icon_url="require('@/assets/guacamole.png')"
                              url="https://julius.familie-babies.de/guacamole"/>
                 <ServiceCard name="phpMyAdmin" :icon_url="require('@/assets/pma.png')"
@@ -9,8 +11,8 @@
                 <ServiceCard name="Bitwarden" :icon_url="require('@/assets/bitwarden.png')"
                              url="https://julius.familie-babies.de/bitwarden"/>
             </div>
-            <div>
-                Geräte:
+            <div id="computers" class="content">
+                <h2>Geräte</h2>
                 <div>
                     <ComputerCard name="magnix" ip="192.168.3.102" os="Manjaro"
                                   :os_icon="require('@/assets/manjaro.svg')"></ComputerCard>
@@ -22,8 +24,12 @@
                                   :os_icon="require('@/assets/ubuntu.png')"></ComputerCard>
                 </div>
             </div>
+            <div class="content">
+                <h1 @click="logout()">Logout</h1>
+            </div>
         </div>
-        <div id="login" v-show="this.localStorage.token === undefined || this.localStorage.token === ''">
+        <div id="login"
+             v-show="this.localStorage.token === undefined || this.localStorage.token === '' || !showContent">
             <h1>Login</h1>
             <div>
                 <form onsubmit="return false" id="intern_login_form">
@@ -31,11 +37,13 @@
                     <input placeholder="Passwort" type="password" ref="pass">
                     <div id="login_submit_button_wrapper" ref="login_submit_button_wrapper" @click="login">
                         <div id="login_submit_button" type="submit" v-if="!this.loginLoading">
-                            <img :src="require('@/assets/arrow_right_alt_FILL0_wght400_GRAD0_opsz48.svg')" id="login_submit_button_arrow" alt="">
+                            <img :src="require('@/assets/arrow_right_alt_FILL0_wght400_GRAD0_opsz48.svg')"
+                                 id="login_submit_button_arrow" alt="">
                             <span id="login_submit_button_text">Login</span>
                         </div>
                         <div v-else id="login_submit_button_loading">
-                            <div class="rotating"></div>Loading...
+                            <div class="rotating"></div>
+                            Loading...
                         </div>
                     </div>
                 </form>
@@ -102,6 +110,10 @@ export default {
                 this.loginLoading = false
                 alert("Login fehlgeschlagen")
             })
+        },
+        logout() {
+            this.localStorage.token = ''
+            this.showContent = false
         }
     },
     mounted() {
@@ -120,7 +132,7 @@ export default {
                     if (data === "ERR_INVALID_TOKEN") {
                         this.localStorage.token = ''
                         this.showContent = false
-                    } else if (data === "token") {
+                    } else if (data === "success") {
                         this.showContent = true
                     }
                 })
@@ -141,6 +153,13 @@ export default {
     width: 300px;
     flex-direction: column;
 }
+
+@media screen and (max-width: 350px) {
+    #intern_login_form {
+        width: auto;
+    }
+}
+
 #intern_login_form > input, #login_submit_button_wrapper {
     display: flex;
     height: 35px;
@@ -158,9 +177,11 @@ export default {
     align-items: center;
     margin: 0 !important;
 }
+
 #login_submit_button_wrapper {
     transition: .3s;
 }
+
 .login_loading {
     background: dodgerblue;
     color: white;
@@ -190,6 +211,11 @@ export default {
     margin-left: 3px;
 }
 
+.content {
+    margin: 0 !important;
+    padding: 5px !important;
+}
+
 .rotating {
     animation: loading 1s linear infinite;
     border-left: 1pt solid #ffffff;
@@ -206,5 +232,24 @@ export default {
     100% {
         rotate: 360deg;
     }
+}
+
+@media screen and (max-width: 400px) {
+    #services {
+        width: auto;
+        white-space: nowrap;
+        overflow-x: scroll;
+        overflow-y: scroll;
+        scrollbar-width: none;
+    }
+
+    #services::-webkit-scrollbar {
+        display: none;
+    }
+
+    #computers {
+        width: auto;
+    }
+
 }
 </style>

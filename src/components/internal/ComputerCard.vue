@@ -52,7 +52,7 @@ export default {
 .computer_card {
     outline: 1pt solid green;
     display: flex;
-    width: 300px;
+    max-width: 300px;
     justify-content: start;
     padding: 11px;
     margin: 0;
