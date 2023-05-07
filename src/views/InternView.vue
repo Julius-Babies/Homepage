@@ -93,12 +93,13 @@ export default {
                         if (data.token === "ERR_INVALID_CREDENTIALS") {
                             this.$refs.login_submit_button_wrapper.classList.remove("login_loading")
                             this.loginLoading = false
-                            alert("Login fehlgeschlagen")
+                            alert("Falsche Zugangsdaten")
                             return
                         }
                         this.localStorage.token = data.token
                         this.$refs.login_submit_button_wrapper.classList.remove("login_loading")
                         this.loginLoading = false
+                        this.showContent = true
                     })
                 } else {
                     this.$refs.login_submit_button_wrapper.classList.remove("login_loading")
