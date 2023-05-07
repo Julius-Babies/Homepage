@@ -1,6 +1,6 @@
 <template>
     <div class="computer_card">
-        <div class="computer_card_os_img_wrapper"><img :src="os_icon" :alt="this.$props.os"></div>
+        <div class="computer_card_os_img_wrapper"><img ref="computer_card_img" class="computer_card_img" :src="os_icon" :alt="this.$props.os"></div>
         <div>{{ name }}<br><span>{{ ip }}</span></div>
         <div ref="computer_card_status" class="computer_card_status computer_card_status_loading"></div>
     </div>
@@ -16,7 +16,6 @@ export default {
         os: String,
     },
     created() {
-        console.log("mounted")
         if (localStorage.token === undefined || localStorage.token === '') return
         setTimeout(() => {
             fetch("https://julius.familie-babies.de/api/computer/ping", {
@@ -38,9 +37,11 @@ export default {
                     if (data === "1") {
                         this.$refs.computer_card_status.classList.remove("computer_card_status_loading")
                         this.$refs.computer_card_status.style.backgroundColor = "#2b8920"
+                        this.$refs.computer_card_img.classList.remove("gray")
                     } else {
                         this.$refs.computer_card_status.classList.remove("computer_card_status_loading")
                         this.$refs.computer_card_status.style.backgroundColor = "#ff0000"
+                        this.$refs.computer_card_img.classList.add("gray")
                     }
                 })
         }, Math.floor(Math.random() * (1000 - 200) + 200))
@@ -58,6 +59,7 @@ export default {
     margin: 0;
     align-items: center;
     font-size: 16px;
+    transition: all .5s;
 }
 
 .computer_card div span {
@@ -71,6 +73,15 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.computer_card_img {
+    filter: grayscale(0);
+    transition: filter .5s;
+}
+
+.gray {
+    filter: grayscale(100%);
 }
 
 img {
