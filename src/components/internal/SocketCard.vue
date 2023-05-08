@@ -1,47 +1,45 @@
 <template>
-    <div class="computer_card">
-        <div class="computer_card_icon_wrapper"><img ref="computer_card_img" class="computer_card_icon" :src="os_icon" :alt="this.$props.os"></div>
-        <div>{{ name }}<br><span>{{ ip }}</span></div>
-        <div ref="computer_card_status" class="computer_card_status computer_card_status_loading"></div>
+    <div class="socket_card">
+        <div class="socket_card_icon_wrapper"><img ref="socket_card_icon" class="socket_card_icon" :src="icon" alt=""></div>
+        <div>{{ name }}<br><span>{{ location }}</span></div>
+        <div ref="socket_card_status" class="socket_card_status socket_card_status_loading"></div>
     </div>
 </template>
 
 <script>
 export default {
-    name: "ComputerCard",
+    name: "SocketCard",
     props: {
+        id: Number,
         name: String,
-        ip: String,
-        os_icon: String,
-        os: String,
+        location: String,
+        icon: String
     },
     created() {
         if (localStorage.token === undefined || localStorage.token === '') return
         setTimeout(() => {
-            fetch("https://julius.familie-babies.de/api/computer/ping", {
+            fetch("https://julius.familie-babies.de/api/socket/get", {
                 method: "POST",
                 body: JSON.stringify({
                     token: localStorage.token,
-                    ip: this.ip
+                    id: this.id
                 }),
                 headers: {
                     "Content-Type": "application/json"
                 },
             })
-                .then(response => response.text())
+                .then(response => response.json())
                 .then(data => {
-                    if (data === 'invalid token') {
+                    if (data === {}) {
                         localStorage.token = ''
-                        return
-                    }
-                    if (data === "1") {
-                        this.$refs.computer_card_status.classList.remove("computer_card_status_loading")
-                        this.$refs.computer_card_status.style.backgroundColor = "#2b8920"
-                        this.$refs.computer_card_img.classList.remove("gray")
+                    } else if (data.state === true) {
+                        this.$refs.socket_card_status.classList.remove("socket_card_status_loading")
+                        this.$refs.socket_card_status.style.backgroundColor = "#2b8920"
+                        this.$refs.socket_card_img.classList.remove("gray")
                     } else {
-                        this.$refs.computer_card_status.classList.remove("computer_card_status_loading")
-                        this.$refs.computer_card_status.style.backgroundColor = "#ff0000"
-                        this.$refs.computer_card_img.classList.add("gray")
+                        this.$refs.socket_card_status.classList.remove("socket_card_status_loading")
+                        this.$refs.socket_card_status.style.backgroundColor = "#ff0000"
+                        this.$refs.socket_card_img.classList.add("gray")
                     }
                 })
         }, Math.floor(Math.random() * (1000 - 200) + 200))
@@ -50,7 +48,7 @@ export default {
 </script>
 
 <style scoped>
-.computer_card {
+.socket_card {
     outline: 1pt solid green;
     display: flex;
     max-width: 300px;
@@ -62,12 +60,12 @@ export default {
     transition: all .5s;
 }
 
-.computer_card div span {
+.socket_card div span {
     font-size: 11px;
     font-style: italic;
 }
 
-.computer_card_icon_wrapper {
+.socket_card_icon_wrapper {
     width: 27px;
     height: 27px;
     display: flex;
@@ -75,7 +73,7 @@ export default {
     align-items: center;
 }
 
-.computer_card_icon {
+.socket_card_icon {
     filter: grayscale(0);
     transition: filter .5s;
 }
@@ -92,7 +90,7 @@ img {
     padding-right: 10px;
 }
 
-.computer_card_status {
+.socket_card_status {
     justify-self: end;
     margin-left: auto;
 
@@ -102,7 +100,7 @@ img {
     border-radius: 8px;
 }
 
-.computer_card_status_loading {
+.socket_card_status_loading {
     animation: loading 1s linear infinite;
     border-left: 1pt solid #b2b2b2;
 }

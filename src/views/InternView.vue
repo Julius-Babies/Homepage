@@ -24,6 +24,12 @@
                                   :os_icon="require('@/assets/ubuntu.png')"></ComputerCard>
                 </div>
             </div>
+            <div id="sockets" class="content">
+                <h2>Steckdosen</h2>
+                <div>
+                    <SocketCard id="0" name="Fenstersteckdose" location="Julius' Zimmer" :icon="require('@/assets/window.png')"></SocketCard>
+                </div>
+            </div>
             <div class="content">
                 <h1 @click="logout()">Logout</h1>
             </div>
@@ -56,11 +62,12 @@
 <script>
 import ServiceCard from "@/components/internal/ServiceCard.vue";
 import ComputerCard from "@/components/internal/ComputerCard.vue";
+import SocketCard from "@/components/internal/SocketCard.vue";
 
 const SHA256 = require("crypto-js/sha256");
 export default {
     name: "InternView",
-    components: {ComputerCard, ServiceCard},
+    components: {SocketCard, ComputerCard, ServiceCard},
     data() {
         return {
             localStorage: localStorage,
@@ -248,7 +255,7 @@ export default {
         display: none;
     }
 
-    #computers {
+    #computers, #sockets {
         width: auto;
     }
 
