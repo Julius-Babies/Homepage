@@ -10,6 +10,8 @@
                              url="https://julius.familie-babies.de/phpmyadmin"/>
                 <ServiceCard name="Bitwarden" :icon_url="require('@/assets/bitwarden.png')"
                              url="https://julius.familie-babies.de/bitwarden"/>
+                <ServiceCard name="Webmail" :icon_url="require('@/assets/strato_logo_white.svg')"
+                             url="https://webmail.strato.de/appsuite/signin"/>
             </div>
             <div id="computers" class="content">
                 <h2>Geräte</h2>
@@ -20,7 +22,7 @@
                                   :os_icon="require('@/assets/ubuntu.png')"></ComputerCard>
                     <ComputerCard name="pi" ip="192.168.3.193" os="Raspbian"
                                   :os_icon="require('@/assets/raspberrypi.png')"></ComputerCard>
-                    <ComputerCard name="kiste" ip="192.168.3.194" os="Ubuntu"
+                    <ComputerCard name="kiste" ip="192.168.3.174" os="Ubuntu"
                                   :os_icon="require('@/assets/ubuntu.png')"></ComputerCard>
                 </div>
             </div>
