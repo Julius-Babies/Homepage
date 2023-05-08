@@ -10,6 +10,8 @@
                              url="https://julius.familie-babies.de/phpmyadmin"/>
                 <ServiceCard name="Bitwarden" :icon_url="require('@/assets/bitwarden.png')"
                              url="https://julius.familie-babies.de/bitwarden"/>
+                <ServiceCard name="Webmail" :icon_url="require('@/assets/strato_logo_white.svg')"
+                             url="https://webmail.strato.de/appsuite/signin"/>
             </div>
             <div id="computers" class="content">
                 <h2>Geräte</h2>
