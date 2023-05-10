@@ -2,16 +2,18 @@
     <div id="content">
         <div class="content"
              v-if="!(this.localStorage.token === undefined || this.localStorage.token === '') || showContent">
-            <div id="services">
+            <div id="services" class="content">
                 <h2 style="margin-top: 0; padding-top: 0">Dienste</h2>
-                <ServiceCard name="Guacamole" :icon_url="require('@/assets/guacamole.png')"
-                             url="https://julius.familie-babies.de/guacamole"/>
-                <ServiceCard name="phpMyAdmin" :icon_url="require('@/assets/pma.png')"
-                             url="https://julius.familie-babies.de/phpmyadmin"/>
-                <ServiceCard name="Bitwarden" :icon_url="require('@/assets/bitwarden.png')"
-                             url="https://julius.familie-babies.de/bitwarden"/>
-                <ServiceCard name="Webmail" :icon_url="require('@/assets/strato_logo_white.svg')"
-                             url="https://webmail.strato.de/appsuite/signin"/>
+                <div>
+                    <ServiceCard name="Guacamole" :icon_url="require('@/assets/guacamole.png')"
+                                 url="https://julius.familie-babies.de/guacamole"/>
+                    <ServiceCard name="phpMyAdmin" :icon_url="require('@/assets/pma.png')"
+                                 url="https://julius.familie-babies.de/phpmyadmin"/>
+                    <ServiceCard name="Bitwarden" :icon_url="require('@/assets/bitwarden.png')"
+                                 url="https://julius.familie-babies.de/bitwarden"/>
+                    <ServiceCard name="Webmail" :icon_url="require('@/assets/strato_logo_white.svg')"
+                                 url="https://webmail.strato.de/appsuite/signin"/>
+                </div>
             </div>
             <div id="computers" class="content">
                 <h2>Geräte</h2>
@@ -29,6 +31,7 @@
             <div id="sockets" class="content">
                 <h2>Steckdosen</h2>
                 <div>
+                    <SocketCard id="0" name="Fenstersteckdose" location="Julius' Zimmer" :icon="require('@/assets/window.png')"></SocketCard>
                     <SocketCard id="0" name="Fenstersteckdose" location="Julius' Zimmer" :icon="require('@/assets/window.png')"></SocketCard>
                 </div>
             </div>
@@ -170,6 +173,22 @@ export default {
     }
 }
 
+#computers > div, #sockets > div {
+    display: grid;
+    width: fit-content;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 4px;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 1px;
+}
+
+input {
+    color: white;
+    background: transparent;
+}
+
 #intern_login_form > input, #login_submit_button_wrapper {
     display: flex;
     height: 35px;
@@ -244,13 +263,17 @@ export default {
     }
 }
 
-@media screen and (max-width: 400px) {
-    #services {
+@media screen and (max-width: 700px) {
+    #services div {
         width: auto;
         white-space: nowrap;
         overflow-x: scroll;
         overflow-y: scroll;
         scrollbar-width: none;
+    }
+
+    #computers > div, #sockets > div {
+        grid-template-columns: repeat(1, 1fr);
     }
 
     #services::-webkit-scrollbar {

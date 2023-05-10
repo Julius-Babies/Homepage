@@ -13,11 +13,7 @@ export default {
     name: "Header",
     mounted() {
         window.addEventListener("scroll", this.handleScroll.bind(this));
-        watch(() => this.$route.name, () => {
-            document.getElementById("menu").style.color = this.color = this.$route.name === "home" || this.has_background ? "white" : "black"
-        });
         watch(() => this.has_background, () => {
-            document.getElementById("menu").style.color = this.color = this.$route.name === "home" || this.has_background ? "white" : "black"
             if (this.has_background) document.getElementById("menu").classList.add("menu_gradient");
             else document.getElementById("menu").classList.remove("menu_gradient");
         });

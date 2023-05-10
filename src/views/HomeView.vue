@@ -1,6 +1,5 @@
 <template>
     <div class="header" id="header">
-        <div id="image"></div>
         <div id="welcome_typing"><span></span><span id="welcome_cursor">|</span></div>
         <div id="welcome_arrow_wrapper" @click="this.$refs.content.scrollIntoView({behavior: 'smooth'})">
             <div id="welcome_arrow">
@@ -165,25 +164,6 @@ article a {
 
 #welcome_arrow img:nth-of-type(3) {
     top: 20px;
-}
-
-#image {
-    display: inline;
-    position: fixed;
-    top: 0;
-    left: 0;
-    transition: .5s;
-    min-width: 100%;
-    min-height: 100%;
-    z-index: -1;
-    filter: brightness(0.7);
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-image: url("~@/assets/header.jpg");
-
 }
 
 #welcome_typing {

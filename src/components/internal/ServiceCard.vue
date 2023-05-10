@@ -33,7 +33,7 @@ a {
 }
 
 .intern_service:hover {
-    background-color: #f3f3f3;
+    background-color: #333333;
     margin-top: 0;
     margin-bottom: 5px;
 }

@@ -49,11 +49,13 @@ export default {
 
 <style scoped>
 .socket_card {
-    outline: 1pt solid green;
+    user-select: none;
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
-    max-width: 300px;
+    width: 300px;
     justify-content: start;
-    padding: 11px;
+    padding: 11px 11px 11px 19px;
+    border-radius: 5px;
     margin: 0;
     align-items: center;
     font-size: 16px;
@@ -112,5 +114,9 @@ img {
     100% {
         rotate: 360deg;
     }
+}
+
+.socket_card:hover {
+    background: v-bind(backgroundColor);
 }
 </style>
