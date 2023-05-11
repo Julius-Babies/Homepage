@@ -26,7 +26,7 @@ body {
     min-width: 100%;
     min-height: 100%;
     z-index: -1;
-    filter: brightness(0.1);
+    filter: brightness(0.2);
 
     background-size: cover;
     background-position: center;
