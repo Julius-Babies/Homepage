@@ -82,14 +82,20 @@ export default {
     },
     methods: {
         login() {
-            if (this.$refs.email.value === '') this.$refs.email.style.borderColor = 'red'
-            if (this.$refs.pass.value === '') this.$refs.pass.style.borderColor = 'red'
-            if (this.loginLoading || this.$refs.email.value === '' || this.$refs.pass.value === '') return
+            // get data
             const email = this.$refs.email.value
             const pass = SHA256(this.$refs.pass.value).toString()
+
+            // check if data is valid
+            if (email === '') this.$refs.email.style.borderColor = 'red'
+            if (this.$refs.pass.value === '') this.$refs.pass.style.borderColor = 'red'
+            if (this.loginLoading || this.$refs.email.value === '' || this.$refs.pass.value === '') return
+
+            // show loading animation
             this.loginLoading = true
             this.$refs.login_submit_button_wrapper.classList.add("login_loading")
 
+            // send request to test credentials
             fetch("https://julius.familie-babies.de/api/auth/login", {
                 method: "POST",
                 headers: {
