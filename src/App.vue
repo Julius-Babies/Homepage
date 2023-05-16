@@ -26,7 +26,7 @@ body {
     min-width: 100%;
     min-height: 100%;
     z-index: -1;
-    filter: brightness(0.6);
+    filter: brightness(0.4);
 
     background-size: cover;
     background-position: center;
@@ -34,6 +34,11 @@ body {
     background-attachment: fixed;
     background-image: url("~@/assets/header.jpg");
 
+}
+
+.unstyled_link {
+    color: white;
+    text-decoration: none;
 }
 
 </style>

@@ -6,21 +6,27 @@ export default {
     },
     methods: {
         redirect() {
-            // Check if public folder exists
-            // If yes, redirect to the public folder
-            window.location.href = '/public/';
-
-            // If the public folder does not exist, redirect to google.de
-            window.location.href = 'https://www.google.de';
+            if (this.$route.meta.redirect) {
+                window.location.href = '/public/';
+                window.location.href = 'https://julius.familie-babies.de/error/404';
+            }
         }
     }
 }
 </script>
 
 <template>
-    <h1>404</h1>
+    <div id="content">
+        <div class="content">
+            <h1>Error 404</h1>
+            Nicht das gefunden, was du gesucht hast? <a href="/" class="unstyled_link" style="text-decoration: underline">Zurück zur Startseite</a>
+        </div>
+    </div>
 </template>
 
 <style scoped>
-
+.content {
+    margin: 0 !important;
+    padding: 5px !important;
+}
 </style>

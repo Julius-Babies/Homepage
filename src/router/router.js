@@ -21,6 +21,15 @@ const routes = [
         }
     },
     {
+        path: '/error/404',
+        name: '404',
+        component: E404,
+        meta: {
+            title: '404 @ Julius Babies',
+            redirect: false
+        }
+    },
+    {
         path: '/:pathMatch(.*)*',
         name: '404',
         component: E404,
@@ -35,8 +44,8 @@ const router = createRouter({
     routes
 })
 router.beforeEach((to, from, next) => {
-    // Get the page title from the route meta data that we have defined
-    // See further down below for how we setup this data
+    // Get the page title from the route metadata that we have defined
+    // See further down below for how we set up this data
     const title = to.meta.title
 
     //Take the title from the parameters

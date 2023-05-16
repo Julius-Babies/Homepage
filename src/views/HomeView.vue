@@ -3,9 +3,9 @@
         <div id="welcome_typing"><span></span><span id="welcome_cursor">|</span></div>
         <div id="welcome_arrow_wrapper" @click="this.$refs.content.scrollIntoView({behavior: 'smooth'})">
             <div id="welcome_arrow">
-                <img src="@/assets/arrow_down.png">
-                <img src="@/assets/arrow_down.png">
-                <img src="@/assets/arrow_down.png">
+                <div class="arrow" style="animation-delay: 0ms !important;"></div>
+                <div class="arrow" style="animation-delay: 500ms !important;"></div>
+                <div class="arrow" style="animation-delay: 1000ms !important;"></div>
             </div>
         </div>
     </div>
@@ -14,17 +14,13 @@
         <article ref="content">
             <h1 style="padding-top: 80px">Über mich</h1>
             <p>
-                Hallo, mein Name ist Julius Babies, ich bin Schüler an einem Dresdener Gymnasium und ich beschäftige mich freizeitlich mit dem Gebiet der Softwareentwicklung mit Schwerpunkten in Kotlin, Java und Vue.JS (JavaScript).<br>
-                Des weiteren beschäftige ich mich gerne mit der Programmierung von Raspberry Pi und Mikroelektronik.
+                Hi, 👋 ich bin Julius Babies, ein engagierter Schüler am Gymnasium in Dresden. Meine Leidenschaft gilt der Softwareentwicklung, und ich habe bereits Erfahrungen in Kotlin, Java und Vue.JS (JavaScript) gesammelt.
             </p>
             <p>
-                Seit vielen Jahren beschäftige ich mich intensiv mit der Softwareentwicklung und habe im Laufe der Zeit umfassende Kenntnisse in verschiedenen Programmiersprachen erworben. Insbesondere Kotlin, Java und Vue (JavaScript) sind meine bevorzugten Sprachen, in denen ich mich durch zahlreiche Projekte und Programmieraufgaben ständig weiterentwickle.
+                Mein Ziel ist es, meine Fähigkeiten weiter zu verbessern und an spannenden Projekten teilzunehmen. Die rasante Entwicklung der Technologie fasziniert mich, und ich bin davon überzeugt, dass Programmierung komplexe Probleme lösen kann. Open-Source-Software ist für mich von großer Bedeutung, und ich engagiere mich gerne dafür.
             </p>
             <p>
-                Ich bin begeistert davon, wie die Technologie unsere Welt verändert und wie die Programmierung die Fähigkeit hat, komplexe Probleme zu lösen und neue Möglichkeiten zu schaffen. Ausserdem stehe ich hinter dem Prinzip von Open-Source-Software und freue mich, wenn ich einen Beitrag dazu leisten kann.
-            </p>
-            <p>
-                Mein Ziel ist es, meine Fähigkeiten in der Softwareentwicklung und Mikroelektronik kontinuierlich zu verbessern und neue Technologien zu erlernen. Ich bin immer auf der Suche nach neuen Herausforderungen und Projekten, bei denen ich mein Wissen und meine Fähigkeiten einbringen kann.
+                Wenn du Fragen hast oder Interesse an Diskussionen hast, stehe ich zur Verfügung:
             </p>
             <h1>(Soziale) Netzwerke</h1>
             <div style="display: flex">
@@ -36,8 +32,10 @@
                 <SocialMediaCard name="Matrix" url="https://matrix.to/#/@julius-babies:matrix.org"
                                  :icon_url="require('@/assets/matrix.svg')"
                                  color="rgba(6, 62, 47, 0.5)"></SocialMediaCard>
+                <SocialMediaCard name="LinkedIn" url="https://www.linkedin.com/in/julius-babies-47a453250/"
+                                 :icon_url="require('@/assets/linkedin.png')"
+                                 color="rgba(0, 68, 113, 0.5)"></SocialMediaCard>
             </div>
-            <p><i>I use arch btw.</i></p>
         </article>
     </div>
 </template>
@@ -127,12 +125,24 @@ export default {
 #welcome_arrow_wrapper {
     position: absolute;
     bottom: 80px;
-    width: 30px;
     padding: 10px;
-    height: 30px;
     text-align: center;
     border-radius: 25px;
     transition: .2s;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#welcome_arrow_wrapper {
+    justify-self: center;
+    align-self: center;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 article {
@@ -147,23 +157,18 @@ article a {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-#welcome_arrow {
-    position: relative;
-}
-
-#welcome_arrow img {
-    width: 20px;
+#welcome_arrow div {
     position: absolute;
-    top: 0;
-    left: 5px;
+    top: 0px;
+    left: 27px;
 }
 
-#welcome_arrow img:nth-of-type(2) {
-    top: 10px;
+#welcome_arrow div:nth-of-type(2) {
+    top: 15px;
 }
 
-#welcome_arrow img:nth-of-type(3) {
-    top: 20px;
+#welcome_arrow div:nth-of-type(3) {
+    top: 30px;
 }
 
 #welcome_typing {
@@ -173,6 +178,39 @@ article a {
     border-right: 0;
     padding-right: 0.05em;
 }
+
+.arrow {
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    align-self: center;
+    padding: 3px;
+    transform: rotate(45deg);
+    position: absolute;
+    animation: glow 3s infinite;
+    top: -5px;
+    left: -5px;
+    border: solid white;
+    border-width: 0 5px 5px 0;
+}
+
+@keyframes glow {
+    0% {
+        filter: drop-shadow(0 0 0 white);
+    }
+    20% {
+        filter: drop-shadow(0 0 10px white);
+    }
+    40% {
+        filter: drop-shadow(0 0 0 white);
+    }
+}
+
+
+
 
 #welcome_cursor {
     animation: typing 0.8s infinite;
