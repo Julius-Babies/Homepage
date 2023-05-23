@@ -14,13 +14,10 @@
         <article ref="content">
             <h1 style="padding-top: 80px">Über mich</h1>
             <p>
-                Hi, 👋 ich bin Julius Babies, ein engagierter Schüler am Gymnasium in Dresden. Meine Leidenschaft gilt der Softwareentwicklung, und ich habe bereits Erfahrungen in Kotlin, Java und Vue.JS (JavaScript) gesammelt.
+                Hi, 👋 ich bin Julius Babies, Schüler an einem Gymnasium in Dresden. Seit 2016 beschäftige ich mich mit Softwareentwicklung. Angefangen mit Scratch von MIT im Alter von 7 Jahren habe ich meine Kentnisse über diverse Sprachen stehts ausgebaut und vertieft. Über die Zeit legte ich meine Schwerpunkte auf Java/Kotlin, Android-Entwicklung und Webdevelopment.
             </p>
             <p>
                 Mein Ziel ist es, meine Fähigkeiten weiter zu verbessern und an spannenden Projekten teilzunehmen. Die rasante Entwicklung der Technologie fasziniert mich, und ich bin davon überzeugt, dass Programmierung komplexe Probleme lösen kann. Open-Source-Software ist für mich von großer Bedeutung, und ich engagiere mich gerne dafür.
-            </p>
-            <p>
-                Wenn du Fragen hast oder Interesse an Diskussionen hast, stehe ich zur Verfügung:
             </p>
             <h1>(Soziale) Netzwerke</h1>
             <div style="display: flex">
