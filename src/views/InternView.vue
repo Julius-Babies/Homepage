@@ -13,6 +13,8 @@
                                  url="https://julius.familie-babies.de/bitwarden"/>
                     <ServiceCard name="Webmail" :icon_url="require('@/assets/strato_logo_white.svg')"
                                  url="https://webmail.strato.de/appsuite/signin"/>
+                    <ServiceCard name="Portainer" :icon_url="require('@/assets/portainer.png')"
+                                 url="https://julius.familie-babies.de/portainer"/>
                 </div>
             </div>
             <div id="computers" class="content">
