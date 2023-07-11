@@ -8,13 +8,15 @@
                     <ServiceCard name="Guacamole" :icon_url="require('@/assets/guacamole.png')"
                                  url="https://julius.familie-babies.de/guacamole"/>
                     <ServiceCard name="phpMyAdmin" :icon_url="require('@/assets/pma.png')"
-                                 url="https://julius.familie-babies.de/phpmyadmin"/>
+                                 url="https://pma.infrastructure.jvbabi.es"/>
                     <ServiceCard name="Bitwarden" :icon_url="require('@/assets/bitwarden.png')"
-                                 url="https://julius.familie-babies.de/bitwarden"/>
+                                 url="https://bitwarden.jvbabi.es"/>
                     <ServiceCard name="Webmail" :icon_url="require('@/assets/strato_logo_white.svg')"
                                  url="https://webmail.strato.de/appsuite/signin"/>
                     <ServiceCard name="Portainer" :icon_url="require('@/assets/portainer.png')"
-                                 url="https://julius.familie-babies.de/portainer"/>
+                                 url="https://portainer.infrastructure.jvbabi.es"/>
+                    <ServiceCard name="GitLab" :icon_url="require('@/assets/gitlab.svg')"
+                                 url="https://gitlab.jvbabi.es"/>
                 </div>
             </div>
             <div id="computers" class="content">
